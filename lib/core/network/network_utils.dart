@@ -57,13 +57,13 @@ class NetworkUtil {
     try {
       if (response.statusCode != null) {
         if (response.statusCode! >= 200 && response.statusCode! <= 299) {
-          if (RestResponse.fromJson(response.data).status >= 200 &&
-              RestResponse.fromJson(response.data).status <= 299) {
-            return RestResponse.fromJson(response.data).responseData;
-          } else {
-            throw ServerException(
-                exceptionMessage: RestResponse.fromJson(response.data).message);
-          }
+          // if (RestResponse.fromJson(response.data).status >= 200 &&
+          //     RestResponse.fromJson(response.data).status <= 299) {
+          return RestResponse.fromJson(response.data).responseData;
+          // } else {
+          //   throw ServerException(
+          //       exceptionMessage: RestResponse.fromJson(response.data).message);
+          // }
         } else {
           throw ServerException(exceptionMessage: response.statusMessage!);
         }

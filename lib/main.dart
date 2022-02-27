@@ -1,6 +1,10 @@
+import 'package:clean_arc_str/core/injection/injection.dart';
+import 'package:clean_arc_str/presentation/screen/practice_screen.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await ServiceLocator.init();
   runApp(MyApp());
 }
 
@@ -22,7 +26,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: PracticScreen(),
     );
   }
 }
